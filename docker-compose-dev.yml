@@ -5,7 +5,7 @@ services:
     image: 'postgres:latest'
     environment:
       - POSTGRES_PASSWORD=postgres_password
-  woker:
+  worker:
     build:
       dockerfile: Dockerfile.dev
       context: ./worker

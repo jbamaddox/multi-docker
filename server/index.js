@@ -1,5 +1,6 @@
 const keys = require("./keys");
 
+
 // Express App Setup
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -8,6 +9,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
 
 // Postgres Client Setup
 const { Pool } = require("pg");
@@ -25,6 +27,7 @@ pgClient.on("connect", (client) => {
     .catch((err) => console.error(err));
 });
 
+
 // Redis Client Setup
 const redis = require("redis");
 const redisClient = redis.createClient({
@@ -34,8 +37,8 @@ const redisClient = redis.createClient({
 });
 const redisPublisher = redisClient.duplicate();
 
-// Express route handlers
 
+// Express route handlers
 app.get("/", (req, res) => {
   res.send("Hi");
 });
